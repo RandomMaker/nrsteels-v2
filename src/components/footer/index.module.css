@@ -1,0 +1,6 @@
+.footer {
+    height: 20rem;
+    width: 100%;
+    background: var(--footerBackground);
+    border-top: 1px solid var(--navbarBorderSeperationBorderColor);
+}

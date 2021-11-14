@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --navbarBorderSeperationBorderColor: #dedede;
+
+    --navbarBackground: #fff;
+    --navlinkColor: #000;
+    --navlinkHoverColor: #000;
+    --navlinkHoverBottomColor: #000;
+
+    --scrollbarThumbColor: #fff;
+    --scrollbarThumbBorderColor: #999;
+    --scrollbarThumbHoverColor: #fff;
+    --scrollbarThumbHoverBorderColor: #000;
+    --scrollbarTrackColor: #fff;
+
+    --footerBackground: #fff;
+
+    --accentColor: #000;
+    --bodyBackground: #f9f9f9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bodyBackground);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--headingsFont);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    position: absolute;
+}
+
+::-webkit-scrollbar-track {
+    position: absolute;
+    background: var(--scrollbarTrackColor);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbarThumbColor);
+    border: 1px solid var(--scrollbarThumbBorderColor);
+    border-radius: 5px;
+    @apply transition-colors;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbarThumbHoverColor);
+    border-color: var(--scrollbarThumbHoverBorderColor);
+}

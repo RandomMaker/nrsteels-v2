@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap");
+
+.navbarHeader {
+    @apply h-20 flex px-3 sm:px-4 md:px-6 w-full fixed;
+    background-color: var(--navbarBackground);
+    transition: all 0.3s;
+    z-index: 999;
+    border-bottom: 1px solid var(--navbarBorderSeperationBorderColor);
+}
+
+.navbar {
+    @apply flex w-full justify-between 2xl:justify-around items-center;
+}
+
+.stickyNavbar {
+    @apply h-16 fixed top-0 left-0 shadow-lg !important;
+}
+
+.logo {
+    @apply flex items-center uppercase cursor-pointer;
+    @apply text-2xl md:text-3xl;
+    font-family: "Orbitron", sans-serif;
+    transition: all 0.5s;
+}
+
+.navMenu {
+    @apply flex justify-between items-center;
+}
+
+.navItem {
+    @apply ml-8 flex items-center justify-center;
+}
+
+.navLink {
+    font-family: "Work Sans", sans-serif;
+    @apply font-semibold;
+    @apply text-2xl md:text-lg;
+    color: var(--navlinkColor);
+    transition: all 0.2s;
+}
+
+.navLink:hover {
+    transform: scale(1.05);
+    color: var(--navlinkHoverColor);
+}
+
+.navLink::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--navlinkHoverBottomColor);
+    transition: width 0.3s;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.navbarHeader.stickyNavbar .navLink::after {
+    margin-top: 0px;
+}
+
+.activeNavLink::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #000;
+}
+
+/* Navbar responsiveness */
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 768px) {
+    .navMenu {
+        position: fixed;
+        right: -100%;
+        top: 5rem;
+        bottom: 0;
+        flex-direction: column;
+        justify-content: start;
+        background-color: var(--navbarBackground);
+        width: 100%;
+        text-align: center;
+        transition: right 0.3s;
+        height: calc(100vh - 5rem);
+        overflow: scroll;
+    }
+
+    .navbarHeader.stickyNavbar .navMenu {
+        @apply top-16;
+    }
+
+    .navMenu.active {
+        right: 0;
+    }
+
+    .navItem {
+        padding: 2rem;
+        @apply w-11/12 mx-auto sm:max-w-sm border-b;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
