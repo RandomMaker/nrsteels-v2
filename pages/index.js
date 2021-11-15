@@ -1,4 +1,4 @@
-import { Navbar, Footer } from "@components";
+import { Navbar, Footer, HomeHero } from "@components";
 import React from "react";
 
 export default function Home() {
@@ -6,6 +6,7 @@ export default function Home() {
         <React.Fragment>
             <Navbar />
             <div style={{ height: "1000vh" }}></div>
+            <HomeHero />
             <Footer />
         </React.Fragment>
     );
