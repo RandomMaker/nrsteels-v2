@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import { mx } from "@utils";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const productImages = [
@@ -72,9 +72,17 @@ const ReelsBox = ({
 
 export default function HomeHero() {
     let column = -1;
+    let currentImg = undefined;
+    let delayedPlay;
+    let isZooming = false;
+    let currentImgProps = { x: 0, y: 0 };
+    let mouse = { x: 0, y: 0 };
+
     let reelsBoxes = [];
 
     const reelsBoxContainerRef = useRef();
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+    const [defaultMainBoxesWidth, setDefaultMainBoxesWidth] = useState(1250);
 
     for (var i = 0; i < 12; i++) {
         if (i % 4 == 0) column++;
@@ -84,12 +92,42 @@ export default function HomeHero() {
                 index={i}
                 productImg={productImages[i]}
                 column={column}
-                // handleMouseEnter={handleMouseEnteredReelsBox}
-                // handleMouseLeave={handleMouseLeaveReelsBox}
-                // handleClick={handleReelsBoxClick}
+                handleMouseEnter={handleMouseEnteredReelsBox}
+                handleMouseLeave={handleMouseLeaveReelsBox}
+                handleClick={handleReelsBoxClick}
             />
         );
     }
+
+    useEffect(() => {
+        setDefaultMainBoxesWidth(checkMainBoxesWidth());
+        if (!!("ontouchstart" in window)) {
+            console.log("touch device!");
+            mouse.x = window.innerWidth - 20;
+            mouse.y = 60 + 20;
+            setIsTouchDevice(true);
+        } else {
+            setIsTouchDevice(false);
+        }
+        window.addEventListener("resize", () => {
+            setDefaultMainBoxesWidth(checkMainBoxesWidth);
+        });
+    });
+
+    const checkMainBoxesWidth = () => {
+        const ss = 1250;
+
+        if (window.innerWidth >= 768) {
+            console.log("Large Screen Detected");
+            ss = 1200;
+        }
+        if (window.innerWidth >= 1024) {
+            console.log("Extra Large Screen Detected");
+            ss = 1100;
+        }
+
+        return ss;
+    };
 
     useEffect(() => {
         let tl = gsap
@@ -100,7 +138,6 @@ export default function HomeHero() {
             .set(`.${styles.mainBoxes}`, {
                 left: "75%",
                 xPercent: -50,
-                width: 1200,
                 rotationX: 14,
                 rotationY: -15,
                 rotationZ: 15,
@@ -133,14 +170,231 @@ export default function HomeHero() {
         }
     }
 
+    function pauseBoxes(b) {
+        var classStr = "pb-col0";
+        if (b.classList.contains("pb-col1")) classStr = "pb-col1";
+        if (b.classList.contains("pb-col2")) classStr = "pb-col2";
+        for (var i = 0; i < reelsBoxContainerRef.current.children.length; i++) {
+            var b = reelsBoxContainerRef.current.children[i];
+            if (b.classList.contains(classStr))
+                gsap.to(b.tl, { timeScale: 0, ease: "sine" });
+        }
+    }
+
+    function handleMouseEnteredReelsBox(e) {
+        if (currentImg) return;
+        if (delayedPlay) delayedPlay.kill();
+
+        var _t = e.target;
+        pauseBoxes(_t);
+
+        gsap.to(`.${styles.photoBox}`, {
+            duration: 0.2,
+            overwrite: "auto",
+            opacity: function (i, t) {
+                return t == _t ? 1 : 0.3;
+            },
+        });
+
+        gsap.fromTo(
+            _t,
+            { zIndex: 100 },
+            {
+                duration: 0.2,
+                scale: 0.62,
+                overwrite: "auto",
+                ease: "power3",
+            }
+        );
+    }
+
+    function handleMouseLeaveReelsBox(e) {
+        if (currentImg) return;
+        var _t = e.target;
+
+        if (gsap.getProperty(_t, "scale") > 0.62)
+            delayedPlay = gsap.delayedCall(0.3, playBoxes);
+        // to avoid jump, add delay when mouseout occurs as big image scales back down (not 100% reliable because the scale value sometimes evaluates too late)
+        else playBoxes();
+
+        gsap.timeline()
+            .set(_t, { zIndex: 1 })
+            .to(
+                _t,
+                {
+                    duration: 0.3,
+                    scale: 0.5,
+                    overwrite: "auto",
+                    ease: "expo",
+                },
+                0
+            )
+            .to(
+                `.${styles.photoBox}`,
+                { duration: 0.5, opacity: 1, ease: "power2.inOut" },
+                0
+            );
+    }
+
+    function handleReelsBoxClick(e) {
+        if (!isZooming) {
+            isZooming = false;
+
+            if (currentImg) {
+                gsap.timeline({ defaults: { ease: "expo.inOut" } })
+                    .to(
+                        `.${styles.mainClose}`,
+                        { duration: 0.1, autoAlpha: 0, overwrite: true },
+                        0
+                    )
+                    .to(
+                        `.${styles.mainBoxes}`,
+                        {
+                            duration: 0.5,
+                            scale: 1,
+                            left: "75%",
+                            width: defaultMainBoxesWidth,
+                            rotationX: 14,
+                            rotationY: -15,
+                            rotationZ: 15,
+                            overwrite: true,
+                        },
+                        0
+                    )
+                    .to(
+                        `.${styles.photoBox}`,
+                        { duration: 0.6, opacity: 1, ease: "power4.inOut" },
+                        0
+                    )
+                    .to(
+                        currentImg,
+                        {
+                            duration: 0.6,
+                            width: 400,
+                            height: 640,
+                            borderRadius: 20,
+                            x: currentImgProps.x,
+                            y: currentImgProps.y,
+                            scale: 0.5,
+                            rotation: 0,
+                            zIndex: 1,
+                        },
+                        0
+                    )
+                    .add(playBoxes, 0.8);
+                currentImg = undefined;
+            } else {
+                pauseBoxes(e.target);
+                currentImg = e.target;
+
+                currentImgProps.x = gsap.getProperty(currentImg, "x");
+                currentImgProps.y = gsap.getProperty(currentImg, "y");
+
+                gsap.timeline({
+                    defaults: { duration: 0.6, ease: "expo.inOut" },
+                })
+                    .set(currentImg, { zIndex: 100 })
+                    .fromTo(
+                        `.${styles.mainClose}`,
+                        {
+                            x: mouse.x,
+                            y: mouse.y,
+                            background: "rgba(0,0,0,0)",
+                        },
+                        {
+                            autoAlpha: 1,
+                            duration: 0.3,
+                            ease: "power3.inOut",
+                        },
+                        0
+                    )
+                    .to(`.${styles.photoBox}`, { opacity: 0 }, 0)
+                    .to(
+                        currentImg,
+                        {
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: 0,
+                            x: 0,
+                            top: 0,
+                            y: 0,
+                            scale: 1,
+                            opacity: 1,
+                        },
+                        0
+                    )
+                    .to(
+                        `.${styles.mainBoxes}`,
+                        {
+                            duration: 0.5,
+                            left: "50%",
+                            width: "100%",
+                            rotationX: 0,
+                            rotationY: 0,
+                            rotationZ: 0,
+                        },
+                        0.15
+                    )
+                    .to(
+                        `.${styles.mainBoxes}`,
+                        {
+                            duration: 5,
+                            scale: 1.06,
+                            rotation: 0.05,
+                            ease: "none",
+                        },
+                        0.65
+                    );
+            }
+        }
+    }
+
+    function handleCloseButtonMouseMove(e) {
+        if (!isTouchDevice) {
+            mouse.x = e.pageX + 30;
+            mouse.y = e.pageY - 80 + 30;
+            if (currentImg)
+                gsap.to(`.${styles.mainClose}`, {
+                    duration: 0.1,
+                    x: mouse.x,
+                    y: mouse.y,
+                    overwrite: "auto",
+                });
+        }
+    }
+
     return (
-        <div className={mx(styles.main, styles.fs)} id="main">
+        <div
+            className={mx(styles.main, styles.fs)}
+            id="main"
+            onMouseMove={handleCloseButtonMouseMove}
+        >
             <div
                 id="mainBoxes"
                 className={mx(styles.mainBoxes, styles.fs)}
                 ref={reelsBoxContainerRef}
             >
                 {reelsBoxes}
+            </div>
+            <div className={styles.mainClose} id="mainClose">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    fill="none"
+                >
+                    <circle cx="30" cy="30" r="30" fill="#000" opacity="0.4" />
+                    <path
+                        d="M15,16L45,46 M45,16L15,46"
+                        stroke="#000"
+                        strokeWidth="3.5"
+                        opacity="0.5"
+                    />
+                    <path
+                        d="M15,15L45,45 M45,15L15,45"
+                        stroke="#fff"
+                        strokeWidth="2"
+                    />
+                </svg>
             </div>
         </div>
     );

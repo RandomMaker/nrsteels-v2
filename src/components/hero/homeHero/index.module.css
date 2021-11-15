@@ -11,33 +11,38 @@
     box-shadow: -8px 8px 29px #cccccc, 8px -8px 29px #ffffff;
 }
 
-.fs {
-    height: 100vh;
+.mainBoxes {
+    width: 1250px;
 }
 
-.mainBoxes {
-    width: 1250px !important;
+.mainClose {
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    left: -60px;
+    top: -60px;
 }
 
 .main {
-    background: #f0f0f0;
     @apply border-b border-gray-300;
+    background: #f0f0f0;
     height: calc(100vh - 5rem) !important;
     overflow: hidden;
     max-height: 700px;
     min-height: 25rem;
     top: 5rem;
     left: 0rem;
+    perspective: 800;
 }
 
 @media screen and (min-width: 768px) {
     .mainBoxes {
-        width: 1200px !important;
+        width: 1200px;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .mainBoxes {
-        width: 1100px !important;
+        width: 1100px;
     }
 }
