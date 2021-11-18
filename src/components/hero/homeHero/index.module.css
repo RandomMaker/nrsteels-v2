@@ -9,6 +9,11 @@
 
 .photoBox {
     box-shadow: -8px 8px 29px #cccccc, 8px -8px 29px #ffffff;
+    display: none;
+}
+
+.photoBox:hover {
+    box-shadow: -28px 28px 40px #999, 28px -28px 40px #999;
 }
 
 .mainBoxes {
@@ -33,6 +38,13 @@
     top: 5rem;
     left: 0rem;
     perspective: 800;
+    /* 
+    Since main's container (header) is a grid,
+    And both headerContent and main are header's 
+    children we added the below line to both of them 
+    so that the both overlap each other.
+    */
+    @apply row-start-1 col-start-1;
 }
 
 @media screen and (min-width: 768px) {
@@ -44,5 +56,45 @@
 @media screen and (min-width: 1024px) {
     .mainBoxes {
         width: 1100px;
+    }
+}
+
+/* Text Part */
+.header {
+    @apply grid;
+}
+
+.headerContent {
+    @apply row-start-1 col-start-1;
+    background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    max-width: calc(15vw + 760px);
+    padding-top: 25vh;
+    padding-left: 5vw;
+    padding-bottom: 65px;
+    padding-right: 5vw;
+    display: inline-block;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.headerContentText {
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px black, 5px 5px 150px #8c8c8c;
+}
+
+.headerBannerText {
+    @apply text-white text-5xl lg:text-7xl font-bold;
+    font-family: "Signika Negative", sans-serif;
+}
+
+.headerBannerSubText {
+    @apply text-white text-4xl mt-5;
+}
+
+@media screen and (min-width: 1024px) {
+    .headerContent {
+        padding-left: 15vw;
+        background-image: none;
     }
 }

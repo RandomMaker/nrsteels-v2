@@ -1,8 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap");
-
 .navbarHeader {
-    @apply h-20 flex px-3 sm:px-4 md:px-6 w-full fixed;
+    @apply h-20 flex px-3 sm:px-4 md:px-6 w-full fixed top-0 left-0;
     background-color: var(--navbarBackground);
     transition: all 0.3s;
     z-index: 999;
@@ -14,13 +11,13 @@
 }
 
 .stickyNavbar {
-    @apply h-16 fixed top-0 left-0 shadow-lg !important;
+    @apply h-16 shadow-lg !important;
 }
 
 .logo {
     @apply flex items-center uppercase cursor-pointer;
     @apply text-2xl md:text-3xl;
-    font-family: "Orbitron", sans-serif;
+    font-family: var(--navbarLogoFontFamily);
     transition: all 0.5s;
 }
 
@@ -33,7 +30,7 @@
 }
 
 .navLink {
-    font-family: "Work Sans", sans-serif;
+    font-family: var(--navbarFontFamily);
     @apply font-semibold;
     @apply text-2xl md:text-lg;
     color: var(--navlinkColor);

@@ -27,12 +27,28 @@ const ReelsBox = ({
     handleClick,
 }) => {
     useEffect(() => {
+        // gsap.set(boxRef.current, {
+        //     attr: {
+        //         class: `${styles.photoBox} pb-col` + column,
+        //     },
+        //     objectFit: "cover",
+        //     objectPosition: "center",
+        //     overflow: "hidden",
+        //     x: [60, 280, 500][column],
+        //     width: 400,
+        //     height: 640,
+        //     borderRadius: 20,
+        //     scale: 0.5,
+        //     zIndex: 1,
+        // });
+
         gsap.set(boxRef.current, {
             attr: {
                 class: `${styles.photoBox} pb-col` + column,
             },
-            objectFit: "cover",
-            objectPosition: "center",
+            backgroundImage: `url("${productImg}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             overflow: "hidden",
             x: [60, 280, 500][column],
             width: 400,
@@ -60,13 +76,13 @@ const ReelsBox = ({
     const boxRef = useRef();
 
     return (
-        <img
-            src={productImg || "https://wallpaperaccess.com/full/1556608.jpg"}
+        <div
+            // src={productImg || "https://wallpaperaccess.com/full/1556608.jpg"}
             ref={boxRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
-        ></img>
+        ></div>
     );
 };
 
@@ -142,13 +158,14 @@ export default function HomeHero() {
                 rotationY: -15,
                 rotationZ: 15,
             })
+            .set(`.${styles.photoBox}`, { display: "block" })
             .fromTo(
                 `.${styles.photoBox}`,
                 { opacity: 0 },
                 {
                     opacity: 1,
                     cursor: "pointer",
-                    stagger: 0.06,
+                    stagger: 0.08,
                     delay: 0.5,
                 }
             );
@@ -189,11 +206,12 @@ export default function HomeHero() {
         pauseBoxes(_t);
 
         gsap.to(`.${styles.photoBox}`, {
-            duration: 0.2,
+            duration: 0.4,
             overwrite: "auto",
             opacity: function (i, t) {
                 return t == _t ? 1 : 0.3;
             },
+            ease: "ease.inOut",
         });
 
         gsap.fromTo(
@@ -364,37 +382,57 @@ export default function HomeHero() {
     }
 
     return (
-        <div
-            className={mx(styles.main, styles.fs)}
-            id="main"
-            onMouseMove={handleCloseButtonMouseMove}
-        >
-            <div
-                id="mainBoxes"
-                className={mx(styles.mainBoxes, styles.fs)}
-                ref={reelsBoxContainerRef}
-            >
-                {reelsBoxes}
+        <div className={styles.header}>
+            <div className={styles.headerContent}>
+                <div className={styles.headerContentText}>
+                    <h1 className={styles.headerBannerText}>
+                        We deal with
+                        <br />
+                        Products You Can Rely On
+                    </h1>
+                    <h3 className={styles.headerBannerSubText}>
+                        We offer a wide range of steel items.
+                    </h3>
+                </div>
             </div>
-            <div className={styles.mainClose} id="mainClose">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    fill="none"
+            <div
+                className={styles.main}
+                id="main"
+                onMouseMove={handleCloseButtonMouseMove}
+            >
+                <div
+                    id="mainBoxes"
+                    className={mx(styles.mainBoxes, styles.fs)}
+                    ref={reelsBoxContainerRef}
                 >
-                    <circle cx="30" cy="30" r="30" fill="#000" opacity="0.4" />
-                    <path
-                        d="M15,16L45,46 M45,16L15,46"
-                        stroke="#000"
-                        strokeWidth="3.5"
-                        opacity="0.5"
-                    />
-                    <path
-                        d="M15,15L45,45 M45,15L15,45"
-                        stroke="#fff"
-                        strokeWidth="2"
-                    />
-                </svg>
+                    {reelsBoxes}
+                </div>
+                <div className={styles.mainClose} id="mainClose">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                        fill="none"
+                    >
+                        <circle
+                            cx="30"
+                            cy="30"
+                            r="30"
+                            fill="#000"
+                            opacity="0.4"
+                        />
+                        <path
+                            d="M15,16L45,46 M45,16L15,46"
+                            stroke="#000"
+                            strokeWidth="3.5"
+                            opacity="0.5"
+                        />
+                        <path
+                            d="M15,15L45,45 M45,15L15,45"
+                            stroke="#fff"
+                            strokeWidth="2"
+                        />
+                    </svg>
+                </div>
             </div>
         </div>
     );

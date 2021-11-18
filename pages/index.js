@@ -5,8 +5,8 @@ export default function Home() {
     return (
         <React.Fragment>
             <Navbar />
-            <div style={{ height: "1000vh" }}></div>
             <HomeHero />
+            <div style={{ height: "100vh" }}></div>
             <Footer />
         </React.Fragment>
     );
