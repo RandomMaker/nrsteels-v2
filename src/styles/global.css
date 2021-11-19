@@ -17,9 +17,11 @@
     --navbarFontFamily: "Work Sans", sans-serif;
     --navbarLogoFontFamily: "Orbitron", sans-serif;
     --navbarZIndex: 999;
+    --navbarHamburgerColor: #000;
 
     --homePageHeaderBackground: #f0f0f0;
     --homePageBannerContentZIndex: 888;
+    --homePageBannerFontFamily: "Signika Negative", sans-serif;
 
     --scrollbarThumbColor: #fff;
     --scrollbarThumbBorderColor: #999;

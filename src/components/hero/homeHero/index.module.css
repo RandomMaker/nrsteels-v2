@@ -12,10 +12,6 @@
     display: none;
 }
 
-.photoBox:hover {
-    box-shadow: -28px 28px 40px #999, 28px -28px 40px #999;
-}
-
 .mainBoxes {
     width: 1250px;
 }
@@ -30,7 +26,7 @@
 
 .main {
     @apply border-b border-gray-300;
-    background: #f0f0f0;
+    background: var(--homePageHeaderBackground);
     height: calc(100vh - 5rem) !important;
     overflow: hidden;
     max-height: 700px;
@@ -74,7 +70,7 @@
     padding-right: 5vw;
     display: inline-block;
     height: auto;
-    z-index: 1;
+    z-index: var(--homePageBannerContentZIndex);
     pointer-events: none;
 }
 
@@ -85,7 +81,7 @@
 
 .headerBannerText {
     @apply text-white text-5xl lg:text-7xl font-bold;
-    font-family: "Signika Negative", sans-serif;
+    font-family: var(--homePageBannerFontFamily);
 }
 
 .headerBannerSubText {
