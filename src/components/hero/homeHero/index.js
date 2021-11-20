@@ -386,12 +386,11 @@ export default function HomeHero() {
             <div className={styles.headerContent}>
                 <div className={styles.headerContentText}>
                     <h1 className={styles.headerBannerText}>
-                        We deal with
-                        <br />
-                        Products You Can Rely On
+                        NRS: India's biggest dealers in steel wire ropes.
                     </h1>
                     <h3 className={styles.headerBannerSubText}>
-                        We offer a wide range of steel items.
+                        We offer a wide range of steel items to tackle with any
+                        situation.
                     </h3>
                 </div>
             </div>

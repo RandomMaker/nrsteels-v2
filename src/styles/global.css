@@ -19,7 +19,7 @@
     --navbarZIndex: 999;
     --navbarHamburgerColor: #000;
 
-    --homePageHeaderBackground: #f0f0f0;
+    --homePageHeaderBackground: #eaeaea;
     --homePageBannerContentZIndex: 888;
     --homePageBannerFontFamily: "Signika Negative", sans-serif;
 
@@ -32,7 +32,7 @@
     --footerBackground: #fff;
 
     --accentColor: #000;
-    --bodyBackground: #f9f9f9;
+    --bodyBackground: #f5f5f5;
 }
 
 * {

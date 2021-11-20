@@ -1,0 +1,22 @@
+.cardContainer {
+    @apply rounded-lg p-6 h-48 w-11/12 shadow-sm grid text-center justify-center items-center mx-auto;
+    background: #fff;
+    transition: all 0.05s linear;
+    grid-template-rows: auto 1fr;
+    max-width: 25rem;
+    min-height: 15rem;
+    box-shadow: -10px 10px 40px #c4c4c4, 10px -10px 40px #ffffff;
+}
+
+.cardContainer:hover {
+    border: 2px solid black;
+}
+
+.icon {
+    @apply mx-auto;
+    font-size: 3rem;
+}
+
+.cardText {
+    @apply text-xl;
+}

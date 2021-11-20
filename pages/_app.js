@@ -1,8 +1,15 @@
-import "tailwindcss/tailwind.css";
+import { Navbar, Footer } from "@components";
 import "@styles/global.css";
+import React from "react";
 
-function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />;
+function App({ Component, pageProps }) {
+    return (
+        <React.Fragment>
+            <Navbar activePage={Component.activePage} />
+            <Component {...pageProps} />
+            <Footer />
+        </React.Fragment>
+    );
 }
 
-export default MyApp;
+export default App;
