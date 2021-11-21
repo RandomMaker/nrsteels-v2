@@ -20,7 +20,7 @@
 .queryForm select,
 .queryForm option,
 .queryForm textarea {
-    @apply w-full rounded text-lg px-3 py-2 border border-gray-200 focus:ring-black;
+    @apply w-full rounded text-lg px-3 py-2 border border-gray-400 focus:ring-black;
     background: #fefefe;
 }
 

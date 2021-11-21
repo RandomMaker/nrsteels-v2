@@ -1,4 +1,4 @@
-import { ContactCard } from "@components";
+import { CaptionHeading, ContactCard } from "@components";
 import { Pages } from "@enums";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -64,6 +64,12 @@ export default function ContactPage() {
 
     return (
         <React.Fragment>
+            <CaptionHeading
+                title="Contact Us"
+                caption="Let's Meet"
+                titleClassName="mt-5 uppercase font-bold"
+            />
+
             <div className={styles.contactCardContainer}>
                 <ContactCard icon={faMapMarkerAlt}>
                     <p>{contactDetails.addressLine1}</p>

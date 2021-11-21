@@ -386,7 +386,7 @@ export default function HomeHero() {
             <div className={styles.headerContent}>
                 <div className={styles.headerContentText}>
                     <h1 className={styles.headerBannerText}>
-                        NRS: India's biggest dealers in steel wire ropes.
+                        We are India's leading dealers in steel wire ropes.
                     </h1>
                     <h3 className={styles.headerBannerSubText}>
                         We offer a wide range of steel items to tackle with any

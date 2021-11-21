@@ -1,0 +1,4 @@
+.sectionHeading {
+    font-family: "Times New Roman", Times, serif;
+    @apply text-8xl text-center;
+}

@@ -7,6 +7,7 @@ import {
     faEnvelope as faEnvelopeSquare,
     faPhoneAlt as faPhoneSquareAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import CaptionHeading from "../captionHeading";
 
 const contactDetails = {
     addressLine1:
@@ -22,14 +23,10 @@ export default function Footer() {
         <footer>
             <div className={styles.footerContactSection}>
                 <div>
-                    <span
-                        className={mx(
-                            styles.preMainHeading
-                            // globalStyles.shoveSideHeading
-                        )}
-                    >
-                        Get In Touch
-                    </span>
+                    <CaptionHeading
+                        caption="Get In Touch"
+                        captionClassName={styles.captionLine}
+                    />
                     <h1 className={styles.mainHeading}>
                         OFFICE <strong>N.R STEELS, AJMER</strong>
                     </h1>

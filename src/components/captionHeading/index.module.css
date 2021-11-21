@@ -1,0 +1,34 @@
+.heading {
+    @apply text-center text-5xl mb-5 leading-snug;
+}
+
+.caption {
+    overflow: hidden;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    @apply block text-sm;
+}
+
+.caption:before,
+.caption:after {
+    background-color: black;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 15%;
+    max-width: 10rem;
+    opacity: 0.5;
+}
+
+.caption:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+.caption:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
