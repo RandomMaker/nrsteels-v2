@@ -62,7 +62,7 @@
 
 .headerContent {
     @apply row-start-1 col-start-1;
-    background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    /* background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)); */
     max-width: calc(15vw + 760px);
     padding-top: 25vh;
     padding-left: 5vw;

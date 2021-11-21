@@ -23,9 +23,9 @@ export default function CaptionHeading({
 }
 
 CaptionHeading.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     boldTitle: PropTypes.string,
-    caption: PropTypes.string.isRequired,
+    caption: PropTypes.string,
     titleClassName: PropTypes.string,
     captionClassName: PropTypes.string,
     boldTitleClassName: PropTypes.string,
