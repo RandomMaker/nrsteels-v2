@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -32,7 +33,7 @@
     --footerBackground: #fff;
 
     --accentColor: #000;
-    --bodyBackground: #f5f5f5;
+    --bodyBackground: #fafafa;
 }
 
 * {

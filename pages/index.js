@@ -8,10 +8,8 @@ export default function Home() {
         <React.Fragment>
             <HomeHero />
             {/* Brands we deal in */}
-            <section>
-                <h1 className={styles.sectionHeading}>
-                    We offer solutions from the most trusted brands
-                </h1>
+            <section className={styles.homeSection}>
+                <h1 className={styles.sectionHeading}>Brands We Deal In</h1>
             </section>
         </React.Fragment>
     );
