@@ -1,10 +1,10 @@
 .sectionHeading {
     font-family: "Inter";
-    @apply text-5xl sm:text-6xl md:text-7xl text-gray-900 text-center container mx-auto my-10;
+    @apply text-5xl sm:text-6xl md:text-7xl text-gray-900 text-center container mx-auto;
 }
 
 .homeSection {
-    @apply py-5 px-2;
+    @apply py-10 px-2;
 }
 
 .ipsTypeRight {
@@ -129,10 +129,6 @@ h2.headingLarge {
     }
 }
 
-.clienteleSection {
-    @apply bg-gray-200;
-}
-
 .clienteleListContainer {
     @apply grid grid-cols-2 md:grid-cols-3;
 }
@@ -180,4 +176,22 @@ h2.headingLarge {
 
 .productNavButton:hover {
     @apply bg-blue-800 text-white scale-x-110;
+}
+
+.aboutUsContainer {
+    max-width: 60rem;
+    @apply px-10 m-auto;
+}
+
+.aboutUsSection {
+    border-bottom: 1px solid var(--navbarBorderSeperationBorderColor);
+}
+
+.brandsSection {
+    @apply bg-gray-100 overflow-hidden;
+    border-bottom: 1px solid var(--navbarBorderSeperationBorderColor);
+}
+
+.clienteleSection {
+    @apply bg-gray-200;
 }

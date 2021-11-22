@@ -158,10 +158,48 @@ export default function Home() {
 
     return (
         <React.Fragment>
-            {/* Home Page Hero Section */}
+            {/* Hero Section */}
             <HomeHero />
+            {/* About Us Section */}
+            <section className={mx(styles.homeSection, styles.aboutUsSection)}>
+                <div className={styles.aboutUsContainer}>
+                    <CaptionHeading
+                        title="About Us"
+                        // boldTitleClassName={globalStyles.logoStyleText}
+                        caption="who we are"
+                        titleClassName={mx(
+                            styles.sectionHeading,
+                            styles.gsReveal,
+                            styles.ipsTypeCenter
+                        )}
+                    />
+                    <div
+                        className={mx(
+                            "text-center text-xl md:text-2xl",
+                            styles.gsReveal
+                        )}
+                    >
+                        <p className={"mb-2"}>
+                            Established in 1976, <strong>N.R Steels</strong> has
+                            made a well-recognized name as a manufacturer,
+                            wholesaler and trader of Wire Rope Slings, Wire
+                            Rope, Bow Shackle. We have achieved expertise in
+                            catering to the requirements of our clients exactly
+                            as per their specifications. We emphasize on
+                            stringent quality standards in order to ensure that
+                            the products provided to our clients is always
+                            optimum to its level.
+                        </p>
+                        <p>
+                            Over the years of our operation, we have registered
+                            consistent growth rate under the insightful guidance
+                            of our mentor <strong>Mr. Sarthak Jain</strong>.
+                        </p>
+                    </div>
+                </div>
+            </section>
             {/* Brands we deal in */}
-            <section className={mx(styles.homeSection)}>
+            <section className={mx(styles.homeSection, styles.brandsSection)}>
                 <div className={styles.cInnerContent}>
                     <CaptionHeading
                         title="Brands We Deal In"
@@ -181,13 +219,7 @@ export default function Home() {
                                 quam deserunt accusantium architecto,
                                 molestias voluptates sequi repellendus alias
                                 ipsam nulla fuga deleniti maxime vero at
-                                labore modi natus velit maiores. Lorem ipsum
-                                dolor sit, amet consectetur adipisicing
-                                elit. Repudiandae iusto nostrum itaque
-                                maxime quam optio, voluptate minima
-                                praesentium, at ea necessitatibus quidem?
-                                Odio exercitationem iure explicabo
-                                commodi molestias eius repellendus."
+                                labore modi natus velit maiores."
                         imgLink={
                             "https://www.tigerlifting.com/media/d1idryvp/tiger-lifting-logo.png?width=479&height=479"
                         }
@@ -204,15 +236,7 @@ export default function Home() {
                                     ipsam nulla fuga deleniti maxime vero at
                                     labore modi natus velit maiores. Lorem ipsum
                                     dolor sit, amet consectetur adipisicing
-                                    elit. Repudiandae iusto nostrum itaque
-                                    maxime quam optio, voluptate minima
-                                    praesentium, at ea necessitatibus quidem?
-                                    Odio exercitationem iure explicabo commodi
-                                    molestias eius repellendus. Fugiat corporis
-                                    quod voluptate eos. Odio blanditiis
-                                    reiciendis aperiam. Unde ut soluta obcaecati
-                                    deleniti vero iure, fugiat voluptatum
-                                    repellat eos!"
+                                    elit."
                         imgLink={
                             "https://lifting.com/wp-content/uploads/2015/08/kiswire.jpg"
                         }
@@ -226,14 +250,7 @@ export default function Home() {
                                     quam deserunt accusantium architecto,
                                     molestias voluptates sequi repellendus alias
                                     ipsam nulla fuga deleniti maxime vero at
-                                    labore modi natus velit maiores. Lorem ipsum
-                                    dolor sit, amet consectetur adipisicing
-                                    elit. Repudiandae iusto nostrum itaque
-                                    maxime quam optio, voluptate minima
-                                    praesentium, at ea necessitatibus quidem?
-                                    Odio exercitationem iure explicabo commodi
-                                    molestias eius repellendus. Fugiat corporis
-                                    quod voluptate eos."
+                                    labore modi natus velit maiores"
                         imgLink={
                             "https://elmersmfg.com/wp-content/uploads/2018/11/haulmaster-menu.jpg"
                         }
@@ -241,6 +258,7 @@ export default function Home() {
                     />
                 </div>
             </section>
+            {/* Clientele Section */}
             <section
                 className={mx(styles.homeSection, styles.clienteleSection)}
             >
