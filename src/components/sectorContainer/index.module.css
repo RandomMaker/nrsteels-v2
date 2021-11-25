@@ -1,0 +1,35 @@
+.sectorContainer {
+    @apply overflow-hidden bg-gray-100 mb-20 rounded-lg drop-shadow-xl shadow-xl m-5;
+    @apply grid gap-y-4;
+    grid-template-rows: 1fr auto;
+    max-width: 600px;
+}
+
+.sectorContainer h2 {
+    font-family: "Inter";
+    @apply text-4xl md:text-4xl text-gray-900 text-center container mx-auto;
+}
+
+.sectorContainer p {
+    @apply text-center m-5 text-base md:text-base;
+}
+
+.sectorDescription {
+}
+
+.sectorImage {
+    @apply object-cover;
+}
+
+.textPart {
+    @apply my-4;
+}
+
+@media screen and (min-width: 1024px) {
+    .sectorContainer {
+        width: 90%;
+        max-width: 1200px;
+        max-height: 400px;
+        @apply grid-rows-none grid-cols-2 mx-auto;
+    }
+}
