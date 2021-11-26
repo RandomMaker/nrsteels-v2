@@ -1,8 +1,32 @@
-import React from "react";
-import { CaptionHeading } from "@components";
-import SectionContainer from "src/components/sectorContainer";
+import React, { useEffect } from "react";
+import { CaptionHeading, RevealCard } from "@components";
+import styles from "./index.module.css";
+import { Pages } from "@enums";
+import gsap from "gsap";
 
 export default function ProductsRangePage() {
+    useEffect(() => {
+        gsap.utils.toArray(`.${styles.gsReveal}`).forEach(function (elem) {
+            hide(elem); // assure that the element is hidden when scrolled into view
+
+            ScrollTrigger.create({
+                trigger: elem,
+                onEnter: function () {
+                    animateFrom(elem);
+                },
+                onEnterBack: function () {
+                    animateFrom(elem, -1);
+                },
+                onLeave: function () {
+                    hide(elem);
+                }, // assure that the element is hidden when scrolled into view
+                onLeaveBack: function () {
+                    hide(elem);
+                },
+            });
+        });
+    });
+
     return (
         <React.Fragment>
             <CaptionHeading
@@ -10,12 +34,38 @@ export default function ProductsRangePage() {
                 caption="Our Products Range"
                 titleClassName="mt-5 uppercase font-bold"
             />
-            <SectionContainer
-                imgLink={"hola"}
-                description={
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quam deserunt accusantium architecto, molestias voluptates sequi repellendus alias ipsam nulla fuga deleniti maxime vero at labore modi natus velit maiores. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae iusto nostrum itaque maxime quam optio, voluptate minima praesentium, at ea necessitatibus quidem? Odio exercitationem iure explicabo commodi molestias eius repellendus. Fugiat corporis quod voluptate eos. Odio blanditiis reiciendis aperiam. Unde ut soluta obcaecati deleniti vero iure, fugiat voluptatum repellat eos!"
-                }
-            />
+            <div className={styles.cInnerContent}>
+                <RevealCard
+                    imgLink="/images/sectors/mining.jpg"
+                    title="Mining"
+                    textLeft={false}
+                    description={
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Rerum, quam deserunt accusantium architecto,
+                            molestias voluptates sequi repellendus alias ipsam
+                            nulla fuga deleniti maxime vero at labore modi natus
+                            velit maiores.
+                        </p>
+                    }
+                />
+                <RevealCard
+                    imgLink="/images/sectors/mining.jpg"
+                    title="Mining"
+                    textLeft={true}
+                    description={
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Rerum, quam deserunt accusantium architecto,
+                            molestias voluptates sequi repellendus alias ipsam
+                            nulla fuga deleniti maxime vero at labore modi natus
+                            velit maiores.
+                        </p>
+                    }
+                />
+            </div>
         </React.Fragment>
     );
 }
+
+ProductsRangePage.activePage = Pages.ProductsRange;

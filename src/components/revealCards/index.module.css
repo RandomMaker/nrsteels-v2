@@ -1,0 +1,110 @@
+.ipsTypeRight {
+    text-align: right;
+}
+
+.ipsTypeLeft {
+}
+
+.ipsTypeCenter {
+    text-align: center;
+}
+
+.ipsSpacerBottomDouble {
+    margin-bottom: 30px;
+}
+
+.ipsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    @apply justify-center;
+}
+
+.ipsGrid::before,
+.ipsGrid::after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.ipsGrid > [class*="ipsGridSpan"] {
+    float: left;
+    margin-left: 2%;
+}
+
+.ipsGrid > [class*="ipsGridSpan"]:first-child {
+    margin-left: 0;
+}
+
+.ipsGrid > [class*="ipsGridSpan"] {
+    display: block;
+    width: 100%;
+    /* min-height: 30px; */
+    box-sizing: border-box;
+}
+
+/* Review */
+.ipsGrid > .ipsGridSpan5 {
+    /* @apply w-5/6 md:w-1/3 bg-blue-800; */
+    /* max-width: 380px; */
+}
+
+.ipsGrid > .ipsGridSpan7 {
+    @apply text-lg;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+}
+
+.card {
+    @apply transition-all overflow-hidden rounded-lg mb-8 shadow-xl drop-shadow-xl md:shadow-none;
+}
+
+.featuredImageContainer .card {
+    height: 400px;
+    max-width: 600px;
+}
+
+h2.headingLarge {
+    font-family: "Inter";
+    @apply text-4xl mb-3;
+}
+
+.cardImg {
+    object-fit: cover;
+}
+
+.gsReveal {
+    opacity: 1;
+    /* opacity: 0; */
+    /* visibility: hidden; */
+    /* will-change: transform, opacity; */
+}
+
+.gsRevealFromLeft {
+}
+
+.gsRevealFromRight {
+}
+
+@media screen and (max-width: 767px) {
+    .ipsGridCollapsePhone {
+        display: grid;
+        grid-template-rows: auto auto;
+        justify-content: center;
+    }
+
+    .ipsGridSpan7 {
+        grid-row-start: 2;
+        max-width: 478px;
+        justify-self: center;
+        text-align: center;
+    }
+
+    .ipsGridSpan5 {
+        grid-row-start: 1;
+        justify-self: center;
+    }
+}
