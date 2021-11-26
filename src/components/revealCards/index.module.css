@@ -76,19 +76,6 @@ h2.headingLarge {
     object-fit: cover;
 }
 
-.gsReveal {
-    opacity: 1;
-    /* opacity: 0; */
-    /* visibility: hidden; */
-    /* will-change: transform, opacity; */
-}
-
-.gsRevealFromLeft {
-}
-
-.gsRevealFromRight {
-}
-
 @media screen and (max-width: 767px) {
     .ipsGridCollapsePhone {
         display: grid;

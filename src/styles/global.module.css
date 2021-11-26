@@ -1,0 +1,12 @@
+/* Reveal Section */
+.gsReveal {
+    opacity: 0;
+    visibility: hidden;
+    will-change: transform, opacity;
+}
+
+.gsRevealFromLeft {
+}
+
+.gsRevealFromRight {
+}

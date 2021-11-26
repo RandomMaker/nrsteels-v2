@@ -5,7 +5,8 @@
             "@styles/*": ["src/styles/*"],
             "@components": ["src/components/index.js"],
             "@enums": ["src/enums/index.js"],
-            "@utils": ["src/utils/index.js"]
+            "@utils": ["src/utils/index.js"],
+            "@hooks": ["src/hooks/index.js"]
         }
     }
 }
