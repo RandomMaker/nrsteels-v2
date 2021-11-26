@@ -10,3 +10,21 @@
 
 .gsRevealFromRight {
 }
+
+/* Button */
+.btnLink {
+    display: block;
+    width: max-content;
+    margin: auto;
+    padding: 1rem 4rem;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.2s;
+    font-weight: bold;
+    min-width: 15rem;
+    @apply border border-blue-800 text-blue-800 transition-all text-center;
+}
+
+.btnLink:hover {
+    @apply bg-blue-800 text-white scale-x-110;
+}
