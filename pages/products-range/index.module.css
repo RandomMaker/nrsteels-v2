@@ -2,3 +2,7 @@
     max-width: 1240px;
     @apply mx-auto overflow-hidden;
 }
+
+.btn {
+    @apply px-2 !important;
+}

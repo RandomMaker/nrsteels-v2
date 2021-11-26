@@ -95,7 +95,7 @@ export default function ProductsRangePage() {
                                         <a
                                             className={mx(
                                                 globalStyles.btnLink,
-                                                " px-5"
+                                                styles.btn
                                             )}
                                         >
                                             View Products
