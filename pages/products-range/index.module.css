@@ -1,4 +1,4 @@
 .cInnerContent {
     max-width: 1240px;
-    @apply mx-auto;
+    @apply mx-auto overflow-hidden;
 }

@@ -5,8 +5,8 @@ import React from "react";
 import styles from "./index.module.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect } from "react";
 import Link from "next/link";
+import globalStyles from "@styles/global.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,8 +22,10 @@ function RevealBlock({
             className={mx(
                 styles.featuredImageContainer,
                 styles.ipsGridSpan5,
-                styles.gsReveal,
-                textLeft ? styles.gsRevealFromRight : styles.gsRevealFromLeft
+                globalStyles.gsReveal,
+                textLeft
+                    ? globalStyles.gsRevealFromRight
+                    : globalStyles.gsRevealFromLeft
             )}
         >
             <div className={styles.card}>
@@ -44,10 +46,10 @@ function RevealBlock({
                 textLeft ? styles.ipsTypeRight : styles.ipsTypeLeft
             )}
         >
-            <h2 className={mx(styles.headingLarge, styles.gsReveal)}>
+            <h2 className={mx(styles.headingLarge, globalStyles.gsReveal)}>
                 {title}
             </h2>
-            <p className={styles.gsReveal}>{description}</p>
+            <p className={globalStyles.gsReveal}>{description}</p>
         </div>
     );
 
@@ -103,59 +105,6 @@ const clienteleList = [
 ];
 
 export default function Home() {
-    const hide = (elem) => {
-        gsap.set(elem, { autoAlpha: 0 });
-    };
-
-    const animateFrom = (elem, direction) => {
-        direction = direction || 1;
-        var x = 0,
-            y = direction * 100;
-        if (elem.classList.contains(styles.gsRevealFromLeft)) {
-            x = -100;
-            y = 0;
-        } else if (elem.classList.contains(styles.gsRevealFromRight)) {
-            x = 100;
-            y = 0;
-        }
-        elem.style.transform = "translate(" + x + "px, " + y + "px)";
-        elem.style.opacity = "0";
-        gsap.fromTo(
-            elem,
-            { x: x, y: y, autoAlpha: 0 },
-            {
-                duration: 1.25,
-                x: 0,
-                y: 0,
-                autoAlpha: 1,
-                ease: "expo",
-                overwrite: "auto",
-            }
-        );
-    };
-
-    useEffect(() => {
-        gsap.utils.toArray(`.${styles.gsReveal}`).forEach(function (elem) {
-            hide(elem); // assure that the element is hidden when scrolled into view
-
-            ScrollTrigger.create({
-                trigger: elem,
-                onEnter: function () {
-                    animateFrom(elem);
-                },
-                onEnterBack: function () {
-                    animateFrom(elem, -1);
-                },
-                onLeave: function () {
-                    hide(elem);
-                }, // assure that the element is hidden when scrolled into view
-                onLeaveBack: function () {
-                    hide(elem);
-                },
-            });
-        });
-    });
-
     return (
         <React.Fragment>
             {/* Hero Section */}
@@ -165,18 +114,17 @@ export default function Home() {
                 <div className={styles.aboutUsContainer}>
                     <CaptionHeading
                         title="About Us"
-                        // boldTitleClassName={globalStyles.logoStyleText}
                         caption="who we are"
                         titleClassName={mx(
                             styles.sectionHeading,
-                            styles.gsReveal,
+                            globalStyles.gsReveal,
                             styles.ipsTypeCenter
                         )}
                     />
                     <div
                         className={mx(
                             "text-center text-xl md:text-2xl",
-                            styles.gsReveal
+                            globalStyles.gsReveal
                         )}
                     >
                         <p className={"mb-2"}>
@@ -206,7 +154,7 @@ export default function Home() {
                         caption={"Hamari Pahuch"}
                         titleClassName={mx(
                             styles.sectionHeading,
-                            styles.gsReveal,
+                            globalStyles.gsReveal,
                             styles.ipsTypeCenter
                         )}
                     />
@@ -267,7 +215,7 @@ export default function Home() {
                     caption={"Our Clientele"}
                     titleClassName={mx(
                         styles.sectionHeading,
-                        styles.gsReveal,
+                        globalStyles.gsReveal,
                         styles.ipsTypeCenter
                     )}
                 />
@@ -284,7 +232,7 @@ export default function Home() {
                                 alt={item.name}
                                 className={mx(
                                     styles.clienteleItemImg,
-                                    styles.gsReveal
+                                    globalStyles.gsReveal
                                 )}
                             />
                         );

@@ -76,6 +76,16 @@ h2.headingLarge {
     object-fit: cover;
 }
 
+@media screen and (max-width: 1280px) {
+    .ipsGridSpan7 {
+        width: 45% !important;
+    }
+
+    .ipsGridSpan5 {
+        width: 50% !important;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .ipsGridCollapsePhone {
         display: grid;
@@ -85,13 +95,22 @@ h2.headingLarge {
 
     .ipsGridSpan7 {
         grid-row-start: 2;
-        max-width: 478px;
+        /* max-width: 478px; */
         justify-self: center;
         text-align: center;
+        width: 90vw !important;
+        @apply pb-8 border-b border-gray-300;
     }
 
     .ipsGridSpan5 {
         grid-row-start: 1;
         justify-self: center;
+        margin: 0 !important;
+        width: 90vw !important;
+    }
+
+    .card {
+        @apply shadow-none drop-shadow-none mb-3;
+        max-height: 350px !important;
     }
 }
