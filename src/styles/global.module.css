@@ -26,5 +26,5 @@
 }
 
 .btnLink:hover {
-    @apply bg-blue-800 text-white scale-x-110;
+    @apply bg-blue-800 text-white;
 }

@@ -1,14 +1,10 @@
-import { HomeHero, CaptionHeading } from "@components";
+import { CaptionHeading, HomeHero } from "@components";
 import { Pages } from "@enums";
+import globalStyles from "@styles/global.module.css";
 import { mx } from "@utils";
+import Link from "next/link";
 import React from "react";
 import styles from "./index.module.css";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import Link from "next/link";
-import globalStyles from "@styles/global.module.css";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function RevealBlock({
     title,

@@ -1,0 +1,4 @@
+.paraText {
+    max-width: 60rem;
+    @apply px-10 m-auto text-lg text-center;
+}
