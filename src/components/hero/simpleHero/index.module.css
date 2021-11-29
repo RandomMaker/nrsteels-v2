@@ -1,0 +1,57 @@
+.hero {
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+    @apply grid;
+}
+
+.hero > span {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    z-index: 1;
+}
+
+.heroImg {
+    @apply object-cover object-center !important;
+}
+
+.heroMainText {
+    font-size: 500%;
+    font-family: "Signika Negative";
+    text-align: center;
+    transition: all 0.3s;
+    text-shadow: 1px 1px 5px black, -1px -1px 5px black;
+    text-transform: uppercase;
+}
+
+.heroMainText::after {
+    content: "";
+    width: 80%;
+    max-width: 25rem;
+    height: 5px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 1px 1px 5px black, -1px -1px 5px black;
+    display: block;
+    margin: auto;
+}
+
+.overlay {
+    color: white;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.overlayContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}

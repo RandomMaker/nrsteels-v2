@@ -1,5 +1,5 @@
 import { getMarketDetails, getMarkets } from "@client";
-import { CaptionHeading } from "@components";
+import { CaptionHeading, SimpleHero } from "@components";
 import { Pages } from "@enums";
 import React from "react";
 import styles from "./index.module.css";
@@ -10,6 +10,7 @@ import globalStyles from "@styles/global.module.css";
 export default function ProductsListPage({ market }) {
     return (
         <React.Fragment>
+            <SimpleHero imgLink={market.imgSrc} title={market.name} />
             <CaptionHeading
                 title={market.name}
                 caption={market.caption}
