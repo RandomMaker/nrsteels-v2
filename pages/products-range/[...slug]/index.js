@@ -7,25 +7,33 @@ import styles from "./index.module.css";
 import { mx } from "@utils";
 import globalStyles from "@styles/global.module.css";
 
+const branch = {
+    name: "Marble Mining",
+    caption: "Our Speciality",
+    description:
+        "Lorem ipsum sit dolor contra voila bolario sono matro kokaneionan armei voila cora bolatro mainia filario coastania",
+    products: [],
+};
+
 export default function ProductsListPage({ market }) {
     return (
         <React.Fragment>
             <SimpleHero imgLink={market.imgSrc} title={market.name} />
-            <CaptionHeading
-                title={market.name}
-                caption={market.caption}
-                titleClassName="mt-5 uppercase font-bold"
-            />
-            <p className={styles.paraText}>
-                This is a paragraph. We at N.R. Steels offer only premium
-                quality equipments used in underground mining. Try us once and
-                let's do this forever XOXO. Let us offer you some of the most
-                premium quality items for mining \_(o_o)_/
-                <br />
-                <strong>
-                    We serve the best equipments for underground mining.
-                </strong>
-            </p>
+            <h3 className={styles.mainDescriptionLine}>{market.description}</h3>
+            <section className={styles.section}>
+                <CaptionHeading
+                    title={branch.name}
+                    caption={branch.caption}
+                    titleClassName={mx(styles.sectionHeading)}
+                />
+
+                <h3 className={styles.sectionDescriptionLine}>
+                    {branch.description}
+                </h3>
+                <div className={styles.sectionContent}>
+                    This will be the products space
+                </div>
+            </section>
         </React.Fragment>
     );
 }

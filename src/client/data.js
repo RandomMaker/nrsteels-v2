@@ -29,7 +29,8 @@ const mining = {
     name: "Mining",
     metaDescription:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quam deserunt accusantium architecto, molestias voluptates sequi repellendus alias ipsam nulla fuga deleniti maxime vero at labore modi natus velit maiores. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    description: "",
+    description:
+        "We provide the most cutting edge products solutions in the mining industry. Our products specializes in underground mining sector.",
     slug: "mining",
     imageName: "mining.jpg",
     caption: "Mining Caption",
