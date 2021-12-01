@@ -27,6 +27,44 @@
 }
 
 .sectionContent {
-    max-width: 1024px;
-    @apply mx-auto bg-red-300 px-2;
+    max-width: 1200px;
+    @apply mx-auto px-2;
+}
+
+.productsListContainer {
+    @apply w-full h-full grid grid-cols-1 gap-y-5 mx-auto;
+    @apply md:grid-cols-2 lg:grid-cols-3;
+}
+
+.productsSection {
+}
+
+.productsSectionTitle {
+    font-family: "Inter";
+    @apply text-3xl md:text-4xl mx-auto w-max my-4 max-w-sm md:max-w-lg text-center;
+}
+
+/* Product Component Specific */
+.productContainer {
+    min-height: 400px;
+    @apply mx-auto w-min border border-gray-300 shadow-sm hover:shadow-lg transition-all;
+}
+
+.productImage {
+    @apply object-cover;
+}
+
+.productDescription {
+    @apply px-5 py-2;
+}
+
+.productTitle {
+    font-family: "Poppins";
+    @apply mx-auto text-xl font-bold;
+}
+
+@media screen and (max-width: 400px) {
+    .productContainer > span {
+        max-width: 90vw !important;
+    }
 }
