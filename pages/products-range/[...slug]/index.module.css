@@ -13,7 +13,7 @@
 .sectionDescriptionLine {
     max-width: 70rem;
     font-family: "Poppins";
-    @apply px-2 m-auto text-center text-base font-bold text-gray-700 my-5;
+    @apply px-2 m-auto text-center text-base font-bold text-gray-700 my-8;
     @apply md:px-10 md:text-2xl;
 }
 
@@ -37,11 +37,16 @@
 }
 
 .productsSection {
+    @apply my-5;
+}
+
+.productsSectionDivider {
+    @apply bg-gray-500 text-gray-300 mx-10 my-8 rounded;
 }
 
 .productsSectionTitle {
     font-family: "Inter";
-    @apply text-3xl md:text-4xl mx-auto w-max my-4 max-w-sm md:max-w-lg text-center;
+    @apply text-3xl md:text-4xl mx-auto w-max my-4 max-w-sm md:max-w-xl text-center;
 }
 
 /* Product Component Specific */
@@ -50,17 +55,30 @@
     @apply mx-auto w-min border border-gray-300 shadow-sm hover:shadow-lg transition-all;
 }
 
+.productContainer:hover .productImage {
+    transform: scale(1.1);
+}
+
+.productContainer > span {
+    margin-bottom: -6px !important;
+}
+
 .productImage {
     @apply object-cover;
+    transition: transform 1s;
 }
 
 .productDescription {
-    @apply px-5 py-2;
+    @apply px-5 py-2 border-t border-gray-300 text-center;
 }
 
 .productTitle {
     font-family: "Poppins";
-    @apply mx-auto text-xl font-bold;
+    @apply mx-auto text-2xl font-bold my-1 text-center;
+}
+
+.productLink {
+    @apply py-2 px-0 my-2;
 }
 
 @media screen and (max-width: 400px) {
