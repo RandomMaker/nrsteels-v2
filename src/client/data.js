@@ -15,47 +15,97 @@
 
 import { Pages } from "@enums";
 
-/*
-    {
-        name: "Excavator Components",
-        classes: [
-            {
-                name: 'Bucket Teeth',
-                img: "boll.jpg",
-                description: "excavator_tooth.jpg",
-                link: ""
-            },
-            {
-                name: 'Adapters',
-                img: "boll.jpg",
-                description: "",
-                link: ""
-            },
-            {
-                name: 'Side Cutters',
-                img: "boll.jpg",
-                description: "",
-                link: ""
-            },
-            {
-                name: "Scarifier",
-                img: "scarifier.jpg",
-                description: "",
-                link: ""
-            }
-
-        ]
-    }
-
-*/
-
 //#region Products
+
+//#endregion
+
+//#region Product Classes
+
+function getProductClassLink(classSlug) {
+    return classSlug
+}
+
+const pcAdapters = {
+    name: "Adapter",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_adapter.jpg",
+    slug: "adapter",
+    get imgSrc() {
+        return `/images/products/classes/${this.imageName}`
+    },
+    get link() {
+        return getProductClassLink(this.slug)
+    }
+}
+
+const pcTooth = {
+    name: "Tooth",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_tooth.jpg",
+    slug: "tooth",
+    get imgSrc() {
+        return `/images/products/classes/${this.imageName}`
+    },
+    get link() {
+        return getProductClassLink(this.slug)
+    }
+}
+
+const pcSideCutter = {
+    name: "Side Cutter",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_sidecutter.jpg",
+    slug: "side-cutter",
+    get imgSrc() {
+        return `/images/products/classes/${this.imageName}`
+    },
+    get link() {
+        return getProductClassLink(this.slug)
+    }
+}
+
+const pcScarifier = {
+    name: "Scrafier",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_scrafier.jpg",
+    slug: "scrafier",
+    get imgSrc() {
+        return `/images/products/classes/${this.imageName}`
+    },
+    get link() {
+        return getProductClassLink(this.slug)
+    }
+}
+
+//#endregion
+
+//#region Categories
+const cBucketComponents = {
+    name: "Excavator Bucket Components",
+    productClasses: [
+        pcAdapters,
+        pcTooth,
+        pcSideCutter,
+        pcScarifier
+    ]
+};
+
+const cUndercarriageParts = {
+    name: "Excavator Undercarriage Parts",
+    productClasses: []
+}
 
 //#endregion
 
 // #region Branches
 
-const bUndergroundMining = {};
+const bUndergroundMining = {
+    name: "Underground Mining",
+    caption: "Premium Quality",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quam deserunt accusantium architecto.",
+    categories = [cBucketComponents]
+};
 
 // #endregion
 
