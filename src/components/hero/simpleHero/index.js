@@ -10,7 +10,6 @@ export default function SimpleHero({ title, imgLink, subContent }) {
                 width={1920}
                 src={imgLink}
                 layout="responsive"
-                priority
             />
             <div className={styles.overlay}>
                 <div className={styles.overlayContent}>
