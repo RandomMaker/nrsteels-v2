@@ -15,6 +15,50 @@
 
 import { Pages } from "@enums";
 
+/*
+    {
+        name: "Excavator Components",
+        classes: [
+            {
+                name: 'Bucket Teeth',
+                img: "boll.jpg",
+                description: "excavator_tooth.jpg",
+                link: ""
+            },
+            {
+                name: 'Adapters',
+                img: "boll.jpg",
+                description: "",
+                link: ""
+            },
+            {
+                name: 'Side Cutters',
+                img: "boll.jpg",
+                description: "",
+                link: ""
+            },
+            {
+                name: "Scarifier",
+                img: "scarifier.jpg",
+                description: "",
+                link: ""
+            }
+
+        ]
+    }
+
+*/
+
+//#region Products
+
+//#endregion
+
+// #region Branches
+
+const bUndergroundMining = {};
+
+// #endregion
+
 //#region Markets
 
 function getSectorLink(sectorSlug) {
