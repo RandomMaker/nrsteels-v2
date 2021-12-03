@@ -1,4 +1,5 @@
 import { markets } from "./data";
+export { getProductClassLink } from "./data";
 
 export function getMarkets() {
     return markets;

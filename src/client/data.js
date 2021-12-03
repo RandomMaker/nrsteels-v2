@@ -1,18 +1,3 @@
-// Long
-// Heavy Duty Long
-// Tiger Long
-// Rock Chiesel
-// Ripper Tooth
-// Weld-on Adapter
-// Flushmount Adapter
-// Side Cutter
-// Bolt-on corner adapter
-// Bolt-on 2 holes adapter
-// Bolt-on 2 holes corner
-// 2 Holes Bolt Center Adapter
-// Sacrifier Shanks
-// Sacrifier Tips
-
 import { Pages } from "@enums";
 
 //#region Products
@@ -21,8 +6,20 @@ import { Pages } from "@enums";
 
 //#region Product Classes
 
-function getProductClassLink(classSlug) {
-    return classSlug
+function getSectorLink(sectorSlug) {
+    return `${Pages.ProductsRange}/${sectorSlug}`;
+}
+
+function getSectorImageLink(sectorImg) {
+    return `/images/sectors/${sectorImg}`;
+}
+
+function _getProductClassLink(classSlug) {
+    return classSlug;
+}
+
+function getProductClassImageLink(imageName) {
+    return `/images/products/classes/${imageName}`;
 }
 
 const pcAdapters = {
@@ -31,12 +28,13 @@ const pcAdapters = {
     imageName: "excavator_adapter.jpg",
     slug: "adapter",
     get imgSrc() {
-        return `/images/products/classes/${this.imageName}`
+        return getProductClassImageLink(this.imageName);
     },
     get link() {
-        return getProductClassLink(this.slug)
-    }
-}
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
 
 const pcTooth = {
     name: "Tooth",
@@ -44,12 +42,13 @@ const pcTooth = {
     imageName: "excavator_tooth.jpg",
     slug: "tooth",
     get imgSrc() {
-        return `/images/products/classes/${this.imageName}`
+        return getProductClassImageLink(this.imageName);
     },
     get link() {
-        return getProductClassLink(this.slug)
-    }
-}
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
 
 const pcSideCutter = {
     name: "Side Cutter",
@@ -57,43 +56,117 @@ const pcSideCutter = {
     imageName: "excavator_sidecutter.jpg",
     slug: "side-cutter",
     get imgSrc() {
-        return `/images/products/classes/${this.imageName}`
+        return getProductClassImageLink(this.imageName);
     },
     get link() {
-        return getProductClassLink(this.slug)
-    }
-}
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
 
 const pcScarifier = {
     name: "Scrafier",
     description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
-    imageName: "excavator_scrafier.jpg",
+    imageName: "excavator_scarifier.jpg",
     slug: "scrafier",
     get imgSrc() {
-        return `/images/products/classes/${this.imageName}`
+        return getProductClassImageLink(this.imageName);
     },
     get link() {
-        return getProductClassLink(this.slug)
-    }
-}
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
+
+const pcRollers = {
+    name: "Rollers",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_rollers.jpg",
+    slug: "rollers",
+    get imgSrc() {
+        return getProductClassImageLink(this.imageName);
+    },
+    get link() {
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
+
+const pcTrackShoes = {
+    name: "Track Shoes",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_trackshoes.jpg",
+    slug: "track-shoes",
+    get imgSrc() {
+        return getProductClassImageLink(this.imageName);
+    },
+    get link() {
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
+
+const pcIdlers = {
+    name: "Idlers",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_idlers.jpg",
+    slug: "idlers",
+    get imgSrc() {
+        return getProductClassImageLink(this.imageName);
+    },
+    get link() {
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
+
+const pcTrackChains = {
+    name: "Track Chains",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_trackchains.jpg",
+    slug: "track-chains",
+    get imgSrc() {
+        return getProductClassImageLink(this.imageName);
+    },
+    get link() {
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
+
+const pcDriveSprockets = {
+    name: "Drive Sprockets",
+    description: "Lorem ipsum dolor sit amet, consectetur adipsing elit",
+    imageName: "excavator_drivesprockets.jpg",
+    slug: "drive-sprockets",
+    get imgSrc() {
+        return getProductClassImageLink(this.imageName);
+    },
+    get link() {
+        return _getProductClassLink(this.slug);
+    },
+    products: [],
+};
 
 //#endregion
 
 //#region Categories
+
 const cBucketComponents = {
     name: "Excavator Bucket Components",
-    productClasses: [
-        pcAdapters,
-        pcTooth,
-        pcSideCutter,
-        pcScarifier
-    ]
+    productClasses: [pcAdapters, pcTooth, pcSideCutter, pcScarifier],
 };
 
 const cUndercarriageParts = {
     name: "Excavator Undercarriage Parts",
-    productClasses: []
-}
+    productClasses: [
+        pcRollers,
+        pcTrackChains,
+        pcIdlers,
+        pcTrackShoes,
+        pcDriveSprockets,
+    ],
+};
 
 //#endregion
 
@@ -104,21 +177,12 @@ const bUndergroundMining = {
     caption: "Premium Quality",
     description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quam deserunt accusantium architecto.",
-    categories = [cBucketComponents]
+    categories: [cBucketComponents, cUndercarriageParts],
 };
 
 // #endregion
 
 //#region Markets
-
-function getSectorLink(sectorSlug) {
-    return `${Pages.ProductsRange}/${sectorSlug}`;
-}
-
-function getSectorImageLink(sectorImg) {
-    return `/images/sectors/${sectorImg}`;
-}
-
 const mining = {
     name: "Mining",
     metaDescription:
@@ -134,6 +198,7 @@ const mining = {
     get imgSrc() {
         return getSectorImageLink(this.imageName);
     },
+    branches: [bUndergroundMining],
 };
 
 const rigging = {
@@ -150,6 +215,7 @@ const rigging = {
     get imgSrc() {
         return getSectorImageLink(this.imageName);
     },
+    branches: [],
 };
 
 const piling = {
@@ -166,6 +232,7 @@ const piling = {
     get imgSrc() {
         return getSectorImageLink(this.imageName);
     },
+    branches: [],
 };
 
 const elevators = {
@@ -182,6 +249,7 @@ const elevators = {
     get imgSrc() {
         return getSectorImageLink(this.imageName);
     },
+    branches: [],
 };
 
 const offShore = {
@@ -198,8 +266,32 @@ const offShore = {
     get imgSrc() {
         return getSectorImageLink(this.imageName);
     },
+    branches: [],
 };
 
 //#endregion
 
 export const markets = [mining, rigging, piling, elevators, offShore];
+
+export function getProductClassLink(marketLink, productClassSlug) {
+    return `${marketLink}/${productClassSlug}`;
+}
+
+// MARKET DETAILS
+// Name
+// Description
+// Meta Description
+// Branches
+
+// BRANCH DETAILS
+// Name
+// Description
+// Caption
+// Product Classes
+
+// PRODUCT CLASSES
+// Name
+// Products
+// Description
+// Link
+// Image
