@@ -19,12 +19,13 @@
 }
 
 .heroMainText {
-    font-size: 500%;
+    font-size: 450%;
     font-family: "Signika Negative";
     text-align: center;
     transition: all 0.3s;
     text-shadow: 1px 1px 5px black, -1px -1px 5px black;
     text-transform: uppercase;
+    @apply leading-none;
 }
 
 .heroMainText::after {
@@ -37,6 +38,7 @@
     box-shadow: 1px 1px 5px black, -1px -1px 5px black;
     display: block;
     margin: auto;
+    margin-top: 10px;
 }
 
 .overlay {

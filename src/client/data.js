@@ -152,9 +152,17 @@ const pcDriveSprockets = {
 
 //#region Categories
 
+function getCategoryLink(slug) {
+    return slug;
+}
+
 const cBucketComponents = {
     name: "Excavator Bucket Components",
     productClasses: [pcAdapters, pcTooth, pcSideCutter, pcScarifier],
+    slug: "excavator-bucket-components",
+    get link() {
+        return getCategoryLink(this.slug);
+    },
 };
 
 const cUndercarriageParts = {
@@ -166,18 +174,30 @@ const cUndercarriageParts = {
         pcTrackShoes,
         pcDriveSprockets,
     ],
+    slug: "excavator-undercarriage-components",
+    get link() {
+        return getCategoryLink(this.slug);
+    },
 };
 
 //#endregion
 
 // #region Branches
 
+function getBranchLink(slug) {
+    return slug;
+}
+
 const bUndergroundMining = {
     name: "Underground Mining",
+    slug: "underground-mining",
     caption: "Premium Quality",
     description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quam deserunt accusantium architecto.",
     categories: [cBucketComponents, cUndercarriageParts],
+    get link() {
+        return getBranchLink(this.slug);
+    },
 };
 
 // #endregion
@@ -273,8 +293,13 @@ const offShore = {
 
 export const markets = [mining, rigging, piling, elevators, offShore];
 
-export function getProductClassLink(marketLink, productClassSlug) {
-    return `${marketLink}/${productClassSlug}`;
+export function getProductClassLink(
+    marketLink,
+    branchLink,
+    categoryLink,
+    productClassSlug
+) {
+    return `${marketLink}/${branchLink}/${categoryLink}/${productClassSlug}`;
 }
 
 // MARKET DETAILS

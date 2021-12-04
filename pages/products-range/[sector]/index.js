@@ -37,7 +37,7 @@ export default function ProductsListPage({ market }) {
         <React.Fragment>
             <SimpleHero imgLink={market.imgSrc} title={market.name} />
             <h3 className={styles.mainDescriptionLine}>{market.description}</h3>
-            {market.branches.map((branch) => {
+            {market?.branches.map((branch) => {
                 return (
                     <section className={styles.section}>
                         <CaptionHeading
@@ -85,6 +85,8 @@ export default function ProductsListPage({ market }) {
                                                                 }
                                                                 link={getProductClassLink(
                                                                     market.link,
+                                                                    branch.link,
+                                                                    category.link,
                                                                     productClass.link
                                                                 )}
                                                             />
@@ -105,7 +107,8 @@ export default function ProductsListPage({ market }) {
 }
 
 export async function getStaticProps(context) {
-    const marketDetail = getMarketDetails(context.params.slug[0]);
+    const marketDetail = getMarketDetails(context.params.sector);
+
     return {
         props: { market: marketDetail },
     };
@@ -113,7 +116,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
     const paths = getMarkets().map((mrkt) => ({
-        params: { slug: [mrkt.slug] },
+        params: { sector: mrkt.slug },
     }));
 
     return {
