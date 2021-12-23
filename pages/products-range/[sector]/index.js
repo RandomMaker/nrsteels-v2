@@ -11,7 +11,7 @@ import globalStyles from "@styles/global.module.css";
 
 function ProductClass({ imgSrc, title, description, link }) {
     return (
-        <div className={styles.productContainer}>
+        <div className={mx(styles.productContainer, globalStyles.gsReveal)}>
             <Image
                 src={imgSrc}
                 width={350}
@@ -36,22 +36,37 @@ export default function ProductsListPage({ market }) {
     return (
         <React.Fragment>
             <SimpleHero imgLink={market.imgSrc} title={market.name} />
-            <h3 className={styles.mainDescriptionLine}>{market.description}</h3>
+            <h3
+                className={mx(
+                    styles.mainDescriptionLine,
+                    globalStyles.gsReveal
+                )}
+            >
+                {market.description}
+            </h3>
             {market?.branches.map((branch) => {
                 return (
-                    <section className={styles.section}>
+                    <section className={styles.section} key={branch.slug}>
                         <CaptionHeading
                             title={branch.name}
                             caption={branch.caption}
-                            titleClassName={mx(styles.sectionHeading)}
+                            titleClassName={mx(
+                                styles.sectionHeading,
+                                globalStyles.gsReveal
+                            )}
                         />
-                        <h3 className={styles.sectionDescriptionLine}>
+                        <h3
+                            className={mx(
+                                styles.sectionDescriptionLine,
+                                globalStyles.gsReveal
+                            )}
+                        >
                             {branch.description}
                         </h3>
                         <div className={styles.sectionContent}>
                             {branch.categories.map((category) => {
                                 return (
-                                    <React.Fragment>
+                                    <React.Fragment key={category.slug}>
                                         <hr
                                             className={
                                                 styles.productsSectionDivider
@@ -59,9 +74,10 @@ export default function ProductsListPage({ market }) {
                                         />
                                         <div className={styles.productsSection}>
                                             <h4
-                                                className={
-                                                    styles.productsSectionTitle
-                                                }
+                                                className={mx(
+                                                    styles.productsSectionTitle,
+                                                    globalStyles.gsReveal
+                                                )}
                                             >
                                                 {category.name}
                                             </h4>
@@ -74,6 +90,9 @@ export default function ProductsListPage({ market }) {
                                                     (productClass) => {
                                                         return (
                                                             <ProductClass
+                                                                key={
+                                                                    productClass.slug
+                                                                }
                                                                 imgSrc={
                                                                     productClass.imgSrc
                                                                 }

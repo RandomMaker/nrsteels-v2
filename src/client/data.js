@@ -2,6 +2,43 @@ import { Pages } from "@enums";
 
 //#region Products
 
+const pTigerChainBlocks = {
+    image1: "https://www.tigerlifting.com/media/mxsjvt15/tcb.jpg",
+    image2: "https://www.tigerlifting.com/media/mxsjvt15/tcb.jpg",
+    title: "Tiger Chain Blocks",
+    description:
+        "Due to our immense capability in this work domain, we have brought forth a huge variety of Tiger Chain Blocks.",
+    details: [
+        ["Capacity", "10 Ton and also available in 500kg to 20 Ton"],
+        ["Brand", "Tiger"],
+        ["Material", "Mild Steel and Iron Mix"],
+        ["Standard Lift", "6 m"],
+        ["Type", "Manual"],
+        ["Application", "Lifting Platform"],
+    ],
+    priceBold: "Rs 2500",
+    priceAfter: " / Piece",
+    id: "1",
+};
+
+const pChainBlocks = {
+    image1: "https://5.imimg.com/data5/VT/RX/QF/SELLER-46648594/chain-blocks-500x500.jpg",
+    image2: "https://5.imimg.com/data5/VT/RX/QF/SELLER-46648594/chain-blocks-500x500.jpg",
+    title: "Chain Blocks",
+    description:
+        "From our wide consignment, we are offering to our patrons an optimum class variety of Chain Blocks.",
+    details: [
+        ["Capacity", "10 Ton and also available in 500kg to 20 Ton"],
+        ["Standard Lift", "6 m"],
+        ["Material", "Mild Steel and Iron Mix"],
+        ["Type", "Manual"],
+        ["Application", "Lifting Platform"],
+    ],
+    priceBold: "Rs 2500",
+    priceAfter: " / Piece",
+    id: "3",
+};
+
 //#endregion
 
 //#region Product Classes
@@ -33,7 +70,7 @@ const pcAdapters = {
     get link() {
         return _getProductClassLink(this.slug);
     },
-    products: [],
+    products: [pTigerChainBlocks, pChainBlocks],
 };
 
 const pcTooth = {

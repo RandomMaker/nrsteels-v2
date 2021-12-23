@@ -1,7 +1,9 @@
 import { getMarketDetails, getMarkets } from "@client";
-import { SimpleHero } from "@components";
+import { SimpleHero, DescriptiveProduct } from "@components";
 import React from "react";
 import styles from "./index.module.css";
+import globalStyles from "@styles/global.module.css";
+import { mx } from "@utils";
 
 export default function ProductsPage({
     market,
@@ -9,6 +11,7 @@ export default function ProductsPage({
     category,
     productClass,
 }) {
+    console.log(productClass);
     return (
         <React.Fragment>
             <SimpleHero
@@ -20,6 +23,16 @@ export default function ProductsPage({
                     </h2>
                 }
             />
+            <h3
+                className={mx(
+                    styles.mainDescriptionLine,
+                    globalStyles.gsReveal
+                )}
+            >
+                {productClass.description}
+            </h3>
+            <DescriptiveProduct product={productClass.products[0]} />
+            <DescriptiveProduct product={productClass.products[0]} />
         </React.Fragment>
     );
 }

@@ -1,5 +1,6 @@
+/* Single divider after product description*/
 .smallDivider {
-    border-color: var(--productDividerColor);
+    border-color: #aaa;
     @apply my-3;
 }
 
@@ -8,16 +9,17 @@
 }
 
 .productContainer {
+    background: #f9f9f9;
+    border-radius: 3px;
+    border: 1px solid #9a9a9a;
+    box-shadow: 5px 2px 5px #dedede, -5px 0px 5px #dedede;
+
     max-width: 65rem;
     width: 90vw;
     overflow-y: hidden;
-    background: var(--productBackground);
     margin: 2rem auto;
-    border-radius: 10px;
     display: grid;
-    grid-template-rows: 22rem auto;
-    border: 3px solid var(--productBorder);
-    box-shadow: 5px 2px 15px black, -5px 0px 15px black;
+    grid-template-rows: 18rem auto;
     transition: all 0.2s;
 }
 
@@ -29,13 +31,12 @@
 
 .productRightSection {
     padding: 1.5rem;
+    border-top: 1px solid #9a9a9a;
 }
 
 .productTable {
-    width: 100%;
-    border-radius: 10px !important;
-    padding: 1rem auto;
-    margin: 0.5rem auto;
+    font-family: "Poppins";
+    @apply text-lg px-4 w-full my-2 mx-auto;
 }
 
 .productExtraDetails {
@@ -46,14 +47,17 @@
 
 .productTitle {
     @apply text-3xl;
+    font-family: "Poppins";
 }
 
 .productPrice {
-    @apply text-xl;
+    @apply text-xl mt-2;
+    font-family: "Poppins";
 }
 
 .productDescription {
-    @apply text-lg;
+    @apply text-lg my-2;
+    font-family: "Poppins";
 }
 
 .productContainer.focused .productExtraDetails {
@@ -61,7 +65,7 @@
 }
 
 .productTableRow {
-    border-bottom: 0.5px solid var(--productTableColor);
+    border-bottom: 0.5px solid #9a9a9a;
 }
 
 .productTableCell {
@@ -69,39 +73,30 @@
 }
 
 .contactUsBtn {
-    width: max-content;
-    padding: 1rem 5rem;
-    display: inline-block;
-    border: 1px solid var(--btnColor);
-    background: var(--btnBackground);
-    border-radius: 50px;
+    margin: 0.5rem;
     font-size: 1.2rem;
-    margin: 0.5rem auto;
-    transition: all 0.5s;
-    font-weight: 600;
-}
-
-.contactUsBtn:hover {
-    background: var(--btnHoverBackground);
-    border: 1px solid var(--btnHoverColor);
-    color: var(--btnHoverColor);
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
 }
 
 .arrow {
-    @apply text-center text-2xl font-bold md:hidden animate-bounce;
+    @apply text-center text-2xl font-bold md:hidden animate-bounce mt-2;
 }
 
 @media screen and (min-width: 680px) {
     .productContainer {
         width: 90vw;
-        height: 25rem;
-        grid-template-columns: 1fr 1fr;
+        height: 20rem;
+        grid-template-columns: 0.9fr 1fr;
         grid-template-rows: 1fr;
     }
 
     .productRightSection {
-        height: 25rem;
         overflow-y: scroll;
+        border: none;
+        border-left: 1px solid #9a9a9a;
     }
 
     .productExtraDetails {
@@ -114,6 +109,11 @@
 @media screen and (min-width: 1024px) {
     .productContainer {
         height: 25rem;
+    }
+
+    .productRightSection {
+        height: 25rem;
+        overflow-y: scroll;
     }
 }
 
