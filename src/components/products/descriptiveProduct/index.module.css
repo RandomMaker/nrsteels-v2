@@ -9,18 +9,13 @@
 }
 
 .productContainer {
-    background: #f9f9f9;
-    border-radius: 3px;
-    border: 1px solid #9a9a9a;
-    box-shadow: 5px 2px 5px #dedede, -5px 0px 5px #dedede;
+    @apply border rounded-sm border-gray-300 shadow-sm hover:shadow-lg transition-all bg-white overflow-y-hidden;
 
     max-width: 65rem;
     width: 90vw;
-    overflow-y: hidden;
     margin: 2rem auto;
     display: grid;
     grid-template-rows: 18rem auto;
-    transition: all 0.2s;
 }
 
 .productImage {
@@ -31,7 +26,7 @@
 
 .productRightSection {
     padding: 1.5rem;
-    border-top: 1px solid #9a9a9a;
+    @apply border-t border-gray-300;
 }
 
 .productTable {
@@ -65,7 +60,7 @@
 }
 
 .productTableRow {
-    border-bottom: 0.5px solid #9a9a9a;
+    @apply border-b border-gray-300;
 }
 
 .productTableCell {
@@ -95,8 +90,7 @@
 
     .productRightSection {
         overflow-y: scroll;
-        border: none;
-        border-left: 1px solid #9a9a9a;
+        @apply border-t-0 border-l border-gray-300 !important;
     }
 
     .productExtraDetails {

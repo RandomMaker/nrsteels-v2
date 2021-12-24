@@ -22,7 +22,8 @@ export default function DescriptiveProduct({ product }) {
             onClick={() => setProductFocused(!productFocused)}
             className={mx(
                 styles.productContainer,
-                (productFocused && styles.focused) || ""
+                (productFocused && styles.focused) || "",
+                globalStyles.gsReveal
             )}
             id={product.id}
         >
