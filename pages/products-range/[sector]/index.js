@@ -44,7 +44,7 @@ export default function ProductsListPage({ market }) {
             >
                 {market.description}
             </h3>
-            {market?.branches.map((branch) => {
+            {market.branches.map((branch) => {
                 return (
                     <section className={styles.section} key={branch.slug}>
                         <CaptionHeading
@@ -127,6 +127,7 @@ export default function ProductsListPage({ market }) {
 
 export async function getStaticProps(context) {
     const marketDetail = getMarketDetails(context.params.sector);
+    console.log(marketDetail.name, "\t", marketDetail.branches);
 
     return {
         props: { market: marketDetail },

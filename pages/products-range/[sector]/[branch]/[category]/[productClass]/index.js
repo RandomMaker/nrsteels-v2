@@ -12,14 +12,18 @@ export default function ProductsPage({
     productClass,
 }) {
     console.log(productClass);
+    let product = null;
+    if (productClass?.products && productClass?.products?.length > 0) {
+        product = productClass.products[0];
+    }
     return (
         <React.Fragment>
             <SimpleHero
-                imgLink={market.imgSrc}
-                title={productClass.name}
+                imgLink={market?.imgSrc}
+                title={productClass?.name}
                 subContent={
                     <h2 className={styles.subContent}>
-                        {branch.name} / {category.name}
+                        {branch?.name} / {category?.name}
                     </h2>
                 }
             />
@@ -29,36 +33,40 @@ export default function ProductsPage({
                     globalStyles.gsReveal
                 )}
             >
-                {productClass.description}
+                {productClass?.description}
             </h3>
-            <DescriptiveProduct product={productClass.products[0]} />
-            <DescriptiveProduct product={productClass.products[0]} />
+            {product != null && (
+                <React.Fragment>
+                    <DescriptiveProduct product={product} />
+                    <DescriptiveProduct product={product} />
+                </React.Fragment>
+            )}
         </React.Fragment>
     );
 }
 
 export async function getStaticProps(context) {
     const market = getMarketDetails(context.params.sector);
-    const branch = market.branches.find(
+    const branch = market?.branches?.find(
         (b) => b.slug === context.params.branch
     );
-    const category = branch.categories.find(
+    const category = branch?.categories?.find(
         (c) => c.slug === context.params.category
     );
-    const productClass = category.productClasses.find(
+    const productClass = category?.productClasses?.find(
         (pc) => pc.slug === context.params.productClass
     );
 
-    delete market.branches;
-    delete branch.categories;
-    delete category.productClasses;
+    delete market?.branches;
+    delete branch?.categories;
+    delete category?.productClasses;
 
     return {
         props: {
-            market,
-            branch,
-            category,
-            productClass,
+            market: market || null,
+            branch: branch || null,
+            category: category || null,
+            productClass: productClass || null,
         },
     };
 }
