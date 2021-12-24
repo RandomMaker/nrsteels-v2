@@ -44,7 +44,7 @@ export default function ProductsListPage({ market }) {
             >
                 {market.description}
             </h3>
-            {market.branches.map((branch) => {
+            {market?.branches?.map((branch) => {
                 return (
                     <section className={styles.section} key={branch.slug}>
                         <CaptionHeading
