@@ -21,7 +21,7 @@
     --navbarHamburgerColor: #000;
 
     --homePageHeaderBackground: #eaeaea;
-    --homePageBannerContentZIndex: 888;
+    --homePageBannerContentZIndex: 10;
     --homePageBannerFontFamily: "Signika Negative", sans-serif;
 
     --scrollbarThumbColor: #fff;
@@ -76,4 +76,14 @@ h6 {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--scrollbarThumbHoverColor);
     border-color: var(--scrollbarThumbHoverBorderColor);
+}
+
+._2iWL7 {
+    position: fixed !important;
+    z-index: 888;
+}
+
+._1bpcM {
+    position: fixed !important;
+    @apply shadow-2xl drop-shadow-2xl border-2 border-green-400;
 }
