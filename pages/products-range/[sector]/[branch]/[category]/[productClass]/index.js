@@ -11,7 +11,7 @@ export default function ProductsPage({
     category,
     productClass,
 }) {
-    console.log(productClass);
+    // console.log(productClass);
     let product = null;
     if (productClass?.products && productClass?.products?.length > 0) {
         product = productClass.products[0];
@@ -47,13 +47,13 @@ export default function ProductsPage({
 
 export async function getStaticProps(context) {
     const market = getMarketDetails(context.params.sector);
-    const branch = market?.branches?.find(
+    const branch = market.branches.find(
         (b) => b.slug === context.params.branch
     );
-    const category = branch?.categories?.find(
+    const category = branch.categories.find(
         (c) => c.slug === context.params.category
     );
-    const productClass = category?.productClasses?.find(
+    const productClass = category.productClasses.find(
         (pc) => pc.slug === context.params.productClass
     );
 
@@ -94,7 +94,7 @@ export async function getStaticPaths() {
     });
 
     return {
-        paths: paths,
-        fallback: false,
+        paths: [],
+        fallback: "blocking",
     };
 }

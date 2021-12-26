@@ -6,5 +6,5 @@ export function getMarkets() {
 }
 
 export function getMarketDetails(marketSlug) {
-    return markets.find((item) => item.slug === marketSlug);
+    return markets.find((item) => item.slug == marketSlug);
 }
